@@ -1,0 +1,59 @@
+# Example Site settings
+
+#google_analytics: UA-NNNNNNNN-N
+
+plugins:
+  - github-pages
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-time-to-read
+
+header_pages:
+ - index.md
+ - search.md
+ - memes.md
+
+#footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
+#listen_for_clients_preferred_style: true # true or false (default)
+
+author:
+  twitter: resynth1943
+
+default_keywords: js,ts,typescript,javascript,development,code,coding
+
+colour: "#9900FF"
+
+lang: en
+
+style: dark
+
+footer:
+  'This site was created using the <a href="https://github.com/resynth/jekyll-theme-console">Jekyll Console Redux</a> theme and GitHub Pages.'
+
+future: true
+
+repository: resynth1943/resynth1943.github.io
+
+exclude:
+  - node_modules/
+  - pnpm-lock.yaml
+  - package*.json
+  - Gemfile*
+  - "*.gemspec"
+  - "LICENSE*"
+  - "*.lock"
+  - "Makefile*"
+  - third_party
+
+keep_files:
+  - node_modules/
+
+sass:
+  # style: compressed
+
+description: I am resynth1943. Welcome to my website.
+
+contact_links:
+  Twitter: https://aaaa
+
+markdown: kramdown

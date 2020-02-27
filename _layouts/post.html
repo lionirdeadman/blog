@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="table-of-contents">
+    <details>
+        <summary>Table of Contents</summary>
+        {% include toc.html html=content sanitize=true %}
+    </details>
+</div>
+
+<hr />
+
+{{ content }}
+
+<div class="footer-directions">
+    {%- if page.previous.url -%}
+        <p style="float: left;">← Previous: <a href="{{ page.previous.url }}">{{ page.previous.title }}</a></p>
+    {%- endif -%}
+
+    {%- if page.next.url -%}
+        <p style="float: right;">Next: <a href="{{ page.next.url }}">{{ page.next.title }}</a> →</p>
+    {%- endif -%}
+
+    <br />
+</div>

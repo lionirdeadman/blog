@@ -1,0 +1,102 @@
+---
+layout: default
+---
+
+<section id="search" aria-label="Search">
+    <input id="search-bar" type="text" placeholder="Search for something..." autofocus>
+    <ul id="search-results" aria-label="Search Results">
+
+    </ul>
+</section>
+
+<script src="/assets/javascript/flexsearch.min.js"></script>
+<script data-inline-search-data></script>
+<script>
+    var fs = new FlexSearch({
+        encode: "advanced",
+        tokenize: "reverse",
+        cache: true
+    });
+
+    for (var index = 0, length = results.length; index < length; index++)
+    {
+        fs.add(index, JSON.stringify(results[index]));
+    }
+
+    /* Stolen from the Underscore library. */
+    function debounce(func, wait, immediate)
+    {
+        var timeout;
+        return function ()
+        {
+            var context = this, args = arguments;
+            var later = function ()
+            {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function prependChild(parent, node)
+    {
+        var firstChild = parent.firstChild;
+
+        if (firstChild)
+        {
+            parent.insertBefore(node, firstChild);
+        } else
+        {
+            parent.appendChild(node);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function ()
+    {
+        var input = document.getElementById('search-bar');
+        var resultsElement = document.getElementById('search-results');
+        var previousQuery = '';
+
+        input.oninput = debounce(function (event)
+        {
+            var data = input.value;
+            resultsElement.innerHTML = '';
+
+            fs.search(data, function (indexes)
+            {
+                for (var index = 0, length = indexes.length; index < length; ++index)
+                {
+                    var resultIndex = indexes[index];
+                    var result = results[resultIndex];
+                    var element = createResultItem(result);
+                    prependChild(resultsElement, element);
+                }
+            });
+        }, 500);
+    });
+
+    function createResultItem(result)
+    {
+        var node = document.createElement('li');
+        node.className = 'search-result';
+
+        var titleElement = document.createElement('h2');
+        var titleAnchor = document.createElement('a');
+        titleAnchor.innerText = result.title;
+        titleAnchor.href = result.url;
+
+        titleElement.appendChild(titleAnchor);
+
+        var summaryElement = document.createElement('p');
+        summaryElement.innerText = result.summary;
+
+        node.appendChild(titleElement);
+        node.appendChild(summaryElement);
+
+        return node;
+    }
+</script>

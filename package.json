@@ -1,0 +1,51 @@
+{
+  "name": "resynth1943.github.io",
+  "version": "1.0.0",
+  "description": "resynth1943's site.",
+  "main": "no-entry.js",
+  "scripts": {
+    "build:compress-fonts": "subfont _site --recursive --in-place --dynamic --inline-fonts --no-fallbacks",
+    "build:uglify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --use-short-doctype --minify-css true --minify-js true --input-dir _site --output-dir _site --file-ext html",
+    "build:flexsearch": "cd third_party/flexsearch && node compile.js DEBUG=false PROFILER=false SUPPORT_ENCODER=false SUPPORT_DOCUMENT=false SUPPORT_WHERE=true SUPPORT_WORKER=false SUPPORT_CACHE=false SUPPORT_ASYNC=false SUPPORT_PRESET=false SUPPORT_INFO=false SUPPORT_SERIALIZE=false SUPPORT_SUGGESTION=false SUPPORT_PAGINATION=false SUPPORT_OPERATOR=false SUPPORT_CALLBACK=false RELEASE=custom",
+    "build:inline-search-data": "node ./scripts/inline-search-data.js",
+    "build:transform": "node ./scripts/run-transformations.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resynth1943/resynth1943.github.io.git"
+  },
+  "keywords": [
+    "github",
+    "pages.jekyll",
+    "site",
+    "static",
+    "assets"
+  ],
+  "author": "resynth1943",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/resynth1943/resynth1943.github.io/issues"
+  },
+  "homepage": "https://github.com/resynth1943/resynth1943.github.io#readme",
+  "devDependencies": {
+    "@jimp/custom": "^0.9.3",
+    "@jimp/plugins": "^0.9.3",
+    "@jimp/types": "^0.9.3",
+    "document-outerhtml": "^0.1.1",
+    "fast-glob": "^3.1.1",
+    "fontmin": "^0.9.8",
+    "gulp": "^4.0.2",
+    "gulp-embed-svg": "^1.2.0",
+    "html-minifier": "^4.0.0",
+    "image-size": "^0.8.3",
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "jimp": "^0.9.3",
+    "jsdom": "^15.2.1",
+    "node-html-parser": "^1.1.18",
+    "static-http2-server": "^1.7.5",
+    "subfont": "^4.1.2",
+    "yaml": "^1.7.2"
+  }
+}
