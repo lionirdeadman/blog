@@ -6,6 +6,7 @@ install:
   - npm ci
 
 before_deploy:
+  - bundle install
   - make build_production
 
 deploy:
