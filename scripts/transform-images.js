@@ -151,6 +151,10 @@ async function changeImageSizes ()
         ) : void 0;
       console.log(`Transform ${image.src}`, { isFromAssets, dimensions });
 
+      if (!dimensions) {
+        continue;
+      }
+
       const fastImage = createFastImage(document, image, {
         width: dimensions.width,
         height: dimensions.height
