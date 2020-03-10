@@ -1,0 +1,13 @@
+@import "variables";
+
+@media print {
+    .menu, #footer, .footer-directions {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%!important;
+    }
+
+    @import "light";
+}

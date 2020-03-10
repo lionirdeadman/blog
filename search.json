@@ -1,11 +1,9 @@
-[{
-      "title"    : "Optimizing This Blog",
-      "tags"     : "programming, libraries",
-      "url"      : "/2020/01/11/Optimizing-this-Blog.html",
-      "summary"  : "This post goes into detail about how I optimized this site to be as fast as it can be."
-    } ,{
-      "title"    : "The AMA",
-      "tags"     : "programming, qa, qanda, q&a",
-      "url"      : "/2019/11/15/The-AMA.html",
-      "summary"  : "I have recently been the subject of an AMA (Ask me Anything). Here is an archive of the questions / answers that happened in the AMA."
-    } ]
+---
+layout: null
+---
+[{% for post in site.posts %}{
+      "title"    : "{{ post.title | escape }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "summary"  : "{{ post.summary }}"
+    } {% unless forloop.last %},{% endunless %}{% endfor %}]

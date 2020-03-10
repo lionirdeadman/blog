@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+{{ content }}
+{% assign contentwonl = content | strip_newlines %} {% unless contentwonl == ""  %} <br /> {% endunless %}
+<!-- add line break if there is any content -->
+
+{%- if site.posts.size > 0 -%}
+<div id="posts">
+  <h1>Posts</h1>
+
+  <p>I post things to this blog frequently. You can read some of the things I've posted below.</p>
+
+  <ul class="post-list">
+    {%- for post in site.posts -%}
+    <li class="post-list-item">
+      {%- assign date_format = "%Y-%m-%d" -%}
+      <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      <br />
+      {%- if post.summary != nil -%}
+        <p class="post-list-summary">{{ post.summary | escape }}</p>
+      {%- endif -%}
+      <br /><br />
+      <p class="post-times">
+        <span class="post-list-date">{{ post.date | date: date_format }}</span> •
+        <span class="post-list-read-time">
+          {% include read_time.html content=post.content %}
+        </span>
+      </p>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{%- endif -%}

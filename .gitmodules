@@ -1,0 +1,3 @@
+[submodule "third_party/flexsearch"]
+	path = third_party/flexsearch
+	url = https://github.com/nextapps-de/flexsearch
