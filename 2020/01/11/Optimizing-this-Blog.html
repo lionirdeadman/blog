@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- If you're reading this message, you're probably interested in how this website was built. Fear not, the source is available here: https://github.com/resynth1943/resynth1943.github.io --><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="author" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="profile" />
+  <meta property="profile:username" content="" />
+  <meta property="profile:gender" content="" />
+  <meta name="theme-color" content="#9900FF" />
+  <meta name="msapplication-TileColor" content="#9900FF" /><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Optimizing This Blog | resynth1943.github.io</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Optimizing This Blog" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Optimizing My Blog" />
+<meta property="og:description" content="Optimizing My Blog" />
+<meta property="og:site_name" content="resynth1943.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-11T00:00:00+00:00" />
+<script type="application/ld+json">
+{"headline":"Optimizing This Blog","dateModified":"2020-01-11T00:00:00+00:00","datePublished":"2020-01-11T00:00:00+00:00","description":"Optimizing My Blog","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/01/11/Optimizing-this-Blog.html"},"url":"/2020/01/11/Optimizing-this-Blog.html","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- This element will have the critical styles included into it as a build step with Node. -->
+  <style data-transform-critical></style>
+
+  <!-- Preload some fonts we'll be needing. -->
+  <link rel="preload" href="/assets/fonts/HackNerdFontComplete-Bold.ttf" as="font" />
+  <link rel="preload" href="/assets/fonts/HackNerdFontComplete-Italic.ttf" as="font" />
+  <link rel="preload" href="/assets/fonts/HackNerdFontComplete-Regular.ttf" as="font" />
+  <link rel="manifest" href="/assets/manifest.json" />
+
+  <script>
+    // Placeholder image for images that haven't had their `src` changes yet. Some browsers can be slow, e.g. mobile, so this is for them.
+    // The advantage of doing this is that we can use this in combination with a "min-height" rule so the document doesn't jump about when an image loads, which is just Bad.
+    var placeholderImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+
+    // Lazy image loader.
+    var imageObserver =
+      typeof IntersectionObserver != "undefined"
+        ? new IntersectionObserver(function (entries)
+        {
+          for (var index = 0, length = entries.length, value, target; index < length; ++index)
+          {
+            value = entries[index];
+            target = value.target;
+
+            if (value.isIntersecting)
+            {
+              // Set anything that makes the image load here.
+              target.setAttribute('src', target.getAttribute('data-src'));
+
+              // Support for responsive images has speedily arrived.
+              if (target.hasAttribute('data-srcset')) target.setAttribute('srcset', target.getAttribute('data-srcset'));
+              if (target.hasAttribute('data-sizes')) target.setAttribute('sizes', target.getAttribute('data-sizes'));
+
+              // Remove the CSS flag from the image.
+              target.removeAttribute('data-lazy-loading');
+
+              // Remove the "min-height" rule we set earlier, otherwise the image will look silly when the width of the page is smaller than that of the image.
+              target.style.minHeight = '';
+              target.removeAttribute('data-src');
+
+              // Now we're done, so the unobserve the image as we aren't interested in it anymore.
+              imageObserver.unobserve(target);
+            }
+          }
+        }, {
+          // When the image is just 40px out of view, load it in, so the user can't tell anything happened.
+          rootMargin: '40px',
+          threshold: 0
+        })
+        : void 0;
+
+    // Async image loader.
+    function i_(attributesRecord)
+    {
+      var currentScript = document.currentScript,
+        image = new Image();
+
+      for (var key in attributesRecord) (key != "src" && key !== "srcset" && key !== "sizes") && image.setAttribute(key, attributesRecord[key]);
+      currentScript.insertAdjacentElement("afterend", image);
+
+      if (imageObserver)
+      {
+        // Set the image's `src` to a placeholder. Expect the `width` and `height` properties to be filled in so the placeholder stretches.
+        image.setAttribute('src', placeholderImage);
+
+        // Set an attribute as a flag for CSS.
+        image.setAttribute('data-lazy-loading', '');
+
+        // We need to force the base64 image to scale up, as height doesn't do the job.
+        image.style.minHeight = image.getAttribute('height');
+        image.setAttribute('data-src', attributesRecord.src);
+
+        // We can't be setting these! The image might load if we do...
+        if (attributesRecord.srcset) image.setAttribute('data-srcset', attributesRecord.srcset);
+        if (attributesRecord.sizes) image.setAttribute('data-sizes', attributesRecord.sizes);
+
+        // Add the image to the lazy-loading observer.
+        imageObserver.observe(image);
+      } else
+      {
+        image.src = attributesRecord.src;
+        image.srcset = attributesRecord.srcset;
+        image.sizes = attributesRecord.sizes;
+      }
+    }
+
+    // YouTube video loader.
+    function y_(element, query)
+    {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://youtube.com/embed/' + query + '&autoplay=1';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('autoplay', '');
+      iframe.className = 'yt-embed';
+      element.parentNode.replaceChild(iframe, element);
+      // Here's a hack to give the YouTube iframe a reasonable height. Let this be our little secret.
+      iframe.parentNode.className = 'yt-embed-wrap';
+    }
+
+    // When the user prints the page, reveal the Table of Contents.
+    function beforePrint()
+    {
+      var toc = document.getElementsByClassName('table-of-contents')[0];
+
+      // The user might not be printing a post.
+      if (toc)
+      {
+        var details = toc.getElementsByTagName('details')[0];
+
+        // Just to be sure...
+        if (details)
+        {
+          details.setAttribute('open', '');
+        }
+      }
+    }
+
+    // I Hate Internet Explorer™
+    if (typeof console !== 'undefined') {
+      console.log('%cIf you\'re reading this message, you\'re probably interested in how this website was built. Fear not, the source is available here: https://github.com/resynth1943/resynth1943.github.io', 'color: #9900FF;');
+    }
+
+    // Attach the event to the document. WebKit does not support this, though, so I might add a polyfill for that in the future.
+    document.addEventListener('beforeprint', beforePrint);
+
+    var _im = undefined;
+    function _m() {
+  if (_im !== undefined) {
+    return _im;
+  }
+
+  var check = false;
+  (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+  return (_im = check);
+};
+  </script>
+
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+</head><body>
+    <div class="container"><header>
+  <div class="menu">
+    <ul class="header-list">
+        <li><a href="/" aria-label="resynth1943">resynth1943</a></li>
+        <li><a href="/search.html" aria-label="Search">Search</a></li>
+        <li><a href="/memes.html" aria-label="Memes">Memes</a></li><!-- <li>
+        <a href="#" class="details-toggle">Contact Me</a>
+          <ul class="details-toggle-target contact-links-details"><li>
+                <a href="https://aaaa">Twitter</a>
+              </li></ul>
+      </li> -->
+    </ul>
+  </div>
+</header>
+<main>
+      <div class="table-of-contents">
+    <details>
+        <summary>Table of Contents</summary>
+        <ul>
+  <li><a href="#optimizing-my-blog">Optimizing My Blog</a>
+    <ul>
+      <li><a href="#lazy-loading-images">Lazy-loading Images</a>
+        <ul>
+          <li><a href="#how-this-works">How this works</a></li>
+        </ul>
+      </li>
+      <li><a href="#responsive-images">Responsive Images</a></li>
+      <li><a href="#the-handling-of-critical-styles">The Handling of Critical Styles</a></li>
+      <li><a href="#fonts">Fonts</a></li>
+      <li><a href="#video-embeds">Video Embeds</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </li>
+</ul>
+
+    </details>
+</div>
+
+<hr />
+
+<h1 id="optimizing-my-blog">Optimizing My Blog</h1>
+
+<ul>
+  <li><strong>My blog can be viewed <a href="https://resynth1943.github.io/">here</a>.</strong></li>
+  <li><strong>The source code is freely available <a href="https://github.com/resynth1943/resynth1943.github.io/">here</a>.</strong></li>
+  <li><strong>You can view this post on my blog <a href="https://resynth1943.github.io/2020/01/11/optimizing-this-blog">here</a>.</strong></li>
+</ul>
+
+<p>So you might be wondering why my site is so visually basic. There’s a few reasons for this, but the main one would definitely be <strong>Content comes first</strong>. This is the fundamental point of having a blog (or any website). If you’re surrounding your content with advertisements, flashing lights, color palletes and Nyan Cats, <em>you’re doing it wrong</em>. So in short, this blog is going to stay good lookin’ and slim, because I want your eyes to be on the content, rather than my distracting creations.</p>
+
+<p>Another thing I think I’ve mastered with this blog is performance. I’ll go into that aspect in depth below, but here’s the quote I’d like you to walk away with.</p>
+
+<blockquote>
+  <p>How long do users stay on your website before clicking away? How long do users stay on a web page?</p>
+
+  <p>Most stick around less than 15 seconds. That’s how long you have to capture someone’s attention on your website. So, if you don’t do that in less than a quarter of a minute, you’ve lost them.
+— <a href="https://www.crazyegg.com/blog/why-users-leave-a-website/">CrazyEgg “The 15 Second Rule: 3 Reasons Why Users Leave a Website”</a></p>
+</blockquote>
+
+<p>I find this rule to be very important, especially as I’m seeing more and more sites adopt these “Allow Cookie” <em>fullscreen</em> banners, This really doesn’t help in our modern society where things are moving so quickly. I’ve chosen to neglect this model and go with something slightly more minimalistic: Nothing.</p>
+
+<p>Now you might think doing very little inhibits you. <em>It really doesn’t</em>. It actually helps you in the long run. Why rush around getting your React app to build when you could just use Markdown and Jekyll? Some simplicity is required, after all.</p>
+
+<p>Following the above points, there are a few performance optimizations I’ve made to this site. I’d like to share them with you today.</p>
+
+<h2 id="lazy-loading-images">Lazy-loading Images</h2>
+
+<p>When you’re reading something on the internet that has images, you really don’t need the images to load until you can see them. Web developers use something called lazy-loading for this exact purpose. When the image enters your line of sight, they are loaded. Until then, they’re left empty. The speed boost this provides is dependant is dependant on how many images are in the post. Of course if there are any, it’s practically <em>useless</em>.</p>
+
+<p>The effects of this can be seen on a mobile with a very slow data connection. I tried to keep that in mind.</p>
+
+<!-- Note to self: Perhaps an image would be nicer? The issue lies with YouTube though. You either use their API to get the thumbnail URL or you'll have a hard time. -->
+<div class="yt-embed-uwrap"><a href="#" onclick="y_(this,'0eGxC5u3mPU?');event.preventDefault();" aria-label="YouTube Video" class="yt-vid-link" style="/* background-image:url(https://img.youtube.com/vi/0eGxC5u3mPU/default.jpg); */">YouTube: Lazy loading images — How it looks for a mobile user</a></div>
+
+<h3 id="how-this-works">How this works</h3>
+
+<p>I wrote a Node script to do this for me. This means I can produce content without thinking about this, <em>it’s all automated.</em></p>
+
+<p>The most important transformation this does inside the HTML is this. Here’s what a normal <code class="highlighter-rouge">img</code> tag looks like, in all it’s glory.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/image.png"</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>Now here’s what the Node script does to it.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;script&gt;</span><span class="nx">i_</span><span class="p">({</span><span class="na">src</span><span class="p">:</span><span class="dl">'</span><span class="s1">/assets/images/image.png</span><span class="dl">'</span><span class="p">,</span><span class="na">alt</span><span class="p">:</span><span class="dl">'</span><span class="s1">...</span><span class="dl">'</span><span class="p">,</span><span class="na">height</span><span class="p">:</span><span class="dl">'</span><span class="s1">...</span><span class="dl">'</span><span class="p">})</span><span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;noscript&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/image.png"</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/noscript&gt;</span>
+</code></pre></div></div>
+
+<p>When the <code class="highlighter-rouge">i_</code> function is called, the HTML is changed to this.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;script&gt;</span><span class="nx">i_</span><span class="p">({</span><span class="na">src</span><span class="p">:</span><span class="dl">'</span><span class="s1">/assets/images/image.png</span><span class="dl">'</span><span class="p">,</span><span class="na">alt</span><span class="p">:</span><span class="dl">'</span><span class="s1">...</span><span class="dl">'</span><span class="p">,</span><span class="na">height</span><span class="p">:</span><span class="dl">'</span><span class="s1">...</span><span class="dl">'</span><span class="p">})</span><span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">"/assets/images/image.png"</span> <span class="na">height=</span><span class="s">"..."</span> <span class="na">data-lazy-loading</span> <span class="na">src=</span><span class="s">"{Base64 placeholder image data url}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;noscript&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/image.png"</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/noscript&gt;</span>
+</code></pre></div></div>
+
+<p>As you can see, the <code class="highlighter-rouge">script</code> tag calls a JavaScript function: <code class="highlighter-rouge">_i</code>. This function handles the lazy loading of the images, of course. Following this, the <code class="highlighter-rouge">height</code> attribute is also passed to this function which allows the JavaScript to set the height of the placeholder image to that specific height, so the content doesn’t “jump about” when the image is loaded in. This makes for a smoother user experience, while also preserving the natural performance benefits of this technique. In short, you get the best of both worlds.</p>
+
+<p>Following this, when the image has not yet been loaded in, a placeholder is used. This placeholder is a Base64 1x1 transparent image, which lets us do the above.</p>
+
+<p>If you’re curious, the placeholder image can be seen below.</p>
+
+<details>
+    <summary>The placeholder image</summary>
+    <code>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=</code>
+</details>
+
+<p>Tiny, isn’t it? That’s the point.</p>
+
+<h2 id="responsive-images">Responsive Images</h2>
+
+<p>In addition to the previous technique, responsive images are provided to the user via the <code class="highlighter-rouge">srcset</code> and <code class="highlighter-rouge">sizes</code> attributes. These allow the browser to fetch smaller images which match the side of the screen, using a smaller amount of data for devices with smaller screens, e.g. a mobile phone or a tablet.</p>
+
+<p>This is done by another Node script.</p>
+
+<p>There are a series of screen widths the images on this site are tailored for. <em>Currently</em>, those are:</p>
+
+<ul>
+  <li>(200px → 300px)</li>
+  <li>(400px → 500px)</li>
+  <li>(600px → 700px)</li>
+  <li>(700px → 800px)</li>
+  <li>(1024px → *)</li>
+</ul>
+
+<p>For every image in the <code class="highlighter-rouge">/assets/images/</code> location, smaller variants are created. Imagine you put an image there named <code class="highlighter-rouge">cat.png</code>…</p>
+
+<p>You would end up with these files generated by the script(s):</p>
+
+<ul>
+  <li><code class="highlighter-rouge">cat-2x.png</code> (200px → 300px)</li>
+  <li><code class="highlighter-rouge">cat-4x.png</code> (400px → 500px)</li>
+  <li><code class="highlighter-rouge">cat-6x.png</code> (600px → 700px)</li>
+  <li><code class="highlighter-rouge">cat-7x.png</code> (700px → 800px)</li>
+  <li><code class="highlighter-rouge">cat.png</code> (1024px → *)</li>
+</ul>
+
+<p>Of course, images that have a width greater than the <code class="highlighter-rouge">max-width</code> of the site are scaled down, so the images are always going to be perfectly sized, in width and in download size.</p>
+
+<h2 id="the-handling-of-critical-styles">The Handling of Critical Styles</h2>
+
+<p>Styling your website is important. Moreover, getting those styles to the user in a swift manner is important too. That is the reason why I created <em>another</em> Node script to inline these styles into the <code class="highlighter-rouge">head</code> of every HTML document. This creates less network requests and a faster initial loading time.</p>
+
+<p>What happens at build-time is this. In the Jekyll layout that includes the <code class="highlighter-rouge">&lt;head&gt;</code>, there’s one odd <code class="highlighter-rouge">&lt;style&gt;</code> element there.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style </span><span class="na">data-transform-critical</span><span class="nt">&gt;&lt;/style&gt;</span>
+</code></pre></div></div>
+
+<p>At build-time, that gets transformed to a <code class="highlighter-rouge">&lt;style&gt;</code> element containing the central CSS for this page. Currently, this includes <em>all</em> the CSS. If I increase the amount of CSS required for this page, I may choose to separate the criical and the non-critical styles into different files, and only inline the critical one here.</p>
+
+<h2 id="fonts">Fonts</h2>
+
+<p>Fonts are very fun to play with. I found a font I very much liked, and was hoping to include it as a part of this website. The font in question is named the <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Nerd Font</a>. It’s both elegant and simplistic, a fundamental building block of a good-looking website.</p>
+
+<p>The only problem was the <em>size</em> of the font(s). There were four variants being requested by the browser: Italic, Bold, Regular and BoldItalic. They were all 1MB each.</p>
+
+<p>To try to counteract this while keeping the fonts, I had experimented with <a href="fontforge">FontForge</a>, a popular but <a href="https://fontforge.org/en-US/">seemingly abandoned</a> editor of fonts. My experience with this was not a good one, so I strove to find something <em>better</em>.</p>
+
+<p>Shortly after, I had discovered <a href="https://www.npmjs.com/package/subfont">subfont</a>. Quoting the README:</p>
+
+<blockquote>
+  <p>A command line tool to statically analyse your page in order to generate the most optimal web font subsets, then inject them into your page.</p>
+</blockquote>
+
+<p>Minimizing the size of the fonts turned out to be as easy as this:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>subfont _site <span class="nt">--recursive</span> <span class="nt">--in-place</span> <span class="nt">--dynamic</span> <span class="nt">--inline-fonts</span>
+</code></pre></div></div>
+
+<p><strong>Why isn’t everyone doing this?!</strong></p>
+
+<p>That actually reduces the size of the fonts by a staggering 29.9MB. After my experience with it, I would urge you to <a href="https://slides.com/munter/high-performance-web-fonts-3#/">read more about it</a>. I would encourage anyone creating a website to use this tool, as the reduction in size can be megnificent. I care about how fast my website loads, so this was perfect.</p>
+
+<h2 id="video-embeds">Video Embeds</h2>
+
+<p>Onto the last one. With video embeds, I’ve chosen to apply a more minimalistic approach, which is using <code class="highlighter-rouge">&lt;a&gt;</code> tags which, when clicked, will load the YouTube video embed. I have written a Jekyll layout for this very purpose.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">onclick=</span><span class="s">"y_(this,'{{ include.video_id }}?{{ include.query }}')"</span> <span class="na">aria-label=</span><span class="s">"YouTube Video"</span> <span class="na">class=</span><span class="s">"yt-vid-link"</span><span class="nt">&gt;</span>YouTube: {{ include.alt }}<span class="nt">&lt;/a&gt;</span> 
+</code></pre></div></div>
+
+<p>When you click on the anchor tag (<code class="highlighter-rouge">&lt;a&gt;</code>), the YouTube embed iframe is appended to that part of the document, providing a lazy-loading solution for embeds. Genius! Of course, this had to stand out like an actual YouTube embed would, so I had to decorate it a bit. Here’s a demo.</p>
+
+<!-- Note to self: Perhaps an image would be nicer? The issue lies with YouTube though. You either use their API to get the thumbnail URL or you'll have a hard time. -->
+<div class="yt-embed-uwrap"><a href="#" onclick="y_(this,'K1Xkt1E7PJY?');event.preventDefault();" aria-label="YouTube Video" class="yt-vid-link" style="/* background-image:url(https://img.youtube.com/vi/K1Xkt1E7PJY/default.jpg); */">YouTube: 9 hours relaxing sounds of cat hoovering around Christmas tree and presents #XmasLife</a></div>
+
+<p>See? It stands out while still being speedy. Perfect!</p>
+
+<p>In closing, I’d like to say the advantage of not eagerly loading the iframe is that it avoids loading a massive chunk of JavaScript / HTML. If I chose the lazy route, I might as well have not bothered optimizing at all.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I’d like to end this blog post by saying that optimizing your site is actually quite <em>easy</em>. When you have the opportunity to do so, do it. As I have hopefully shown to you, the difference between an optimized and unoptimized site can be enormous, and it’s definitely worth it. Don’t reach for JavaScript libraries too quickly, and remember the <a href="https://www.crazyegg.com/blog/why-users-leave-a-website/">15 Second Rule</a>.</p>
+
+
+
+<div class="footer-directions"><p style="float: left;">← Previous: <a href="/2019/11/15/The-AMA.html">The AMA</a></p><br />
+</div>
+
+    </main><footer id=footer>
+  This site was created using the <a href="https://github.com/resynth/jekyll-theme-console">Jekyll Console Redux</a> theme and GitHub Pages.
+
+  
+
+  <!-- FlatIcon attribution - Thanks guys, the icons are great. -->
+  <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
+    from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
+      href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <a rel="me" href="https://vis.social/@resynth1943">Mastodon</a>
+</footer></div>
+  </body>
+  <script src="/assets/javascript/instantclick.min.js" data-no-instant></script>
+  <script data-no-instant>/* Let's make it fast. */ InstantClick.init(_m() ? 'touchstart' : 'mouseover');</script>
+</html>

@@ -1,0 +1,393 @@
+@charset "UTF-8";
+/** Dark theme variables */
+:root { --base-color: #DBDBDB; --primary-color: #9900FF; --border: dashed 1px rgba(219, 219, 219, 0.9); --selection-background: rgba(219, 219, 219, 0.99); --selection-text: #000; --background-color: #150021; --anchor-hover-text-color: rgb(255, 80, 168); --text-color: var(--base-color); --placeholder-color: var(--base-color); --link-color: var(--base-color); --codeblock-background: rgb(26, 25, 25); }
+
+/** Style variables */
+.highlight pre { background-color: #000000; border: 2px solid #313131; padding: 10px; border-radius: 0px; }
+
+.highlight .hll { background-color: #272822; }
+
+.highlight .c { color: #75715e; }
+
+/* Comment */
+.highlight .err { color: #960050; background-color: #1e0010; }
+
+/* Error */
+.highlight .k { color: #66d9ef; }
+
+/* Keyword */
+.highlight .l { color: #ae81ff; }
+
+/* Literal */
+.highlight .n { color: #f8f8f2; }
+
+/* Name */
+.highlight .o { color: #f36d9e; }
+
+/* Operator */
+.highlight .p { color: #f8f8f2; }
+
+/* Punctuation */
+.highlight .cm { color: #75715e; }
+
+/* Comment.Multiline */
+.highlight .cp { color: #75715e; }
+
+/* Comment.Preproc */
+.highlight .c1 { color: #9b9472; }
+
+/* Comment.Single */
+.highlight .cs { color: #75715e; }
+
+/* Comment.Special */
+.highlight .ge { font-style: italic; }
+
+/* Generic.Emph */
+.highlight .gs { font-weight: bold; }
+
+/* Generic.Strong */
+.highlight .kc { color: #66d9ef; }
+
+/* Keyword.Constant */
+.highlight .kd { color: #66d9ef; }
+
+/* Keyword.Declaration */
+.highlight .kn { color: #f92672; }
+
+/* Keyword.Namespace */
+.highlight .kp { color: #66d9ef; }
+
+/* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef; }
+
+/* Keyword.Reserved */
+.highlight .kt { color: #66d9ef; }
+
+/* Keyword.Type */
+.highlight .ld { color: #e6db74; }
+
+/* Literal.Date */
+.highlight .m { color: #ae81ff; }
+
+/* Literal.Number */
+.highlight .s { color: #e6db74; }
+
+/* Literal.String */
+.highlight .na { color: #a6e22e; }
+
+/* Name.Attribute */
+.highlight .nb { color: #f8f8f2; }
+
+/* Name.Builtin */
+.highlight .nc { color: #a6e22e; }
+
+/* Name.Class */
+.highlight .no { color: #66d9ef; }
+
+/* Name.Constant */
+.highlight .nd { color: #a6e22e; }
+
+/* Name.Decorator */
+.highlight .ni { color: #f8f8f2; }
+
+/* Name.Entity */
+.highlight .ne { color: #a6e22e; }
+
+/* Name.Exception */
+.highlight .nf { color: #a6e22e; }
+
+/* Name.Function */
+.highlight .nl { color: #f8f8f2; }
+
+/* Name.Label */
+.highlight .nn { color: #f8f8f2; }
+
+/* Name.Namespace */
+.highlight .nx { color: #a6e22e; }
+
+/* Name.Other */
+.highlight .py { color: #f8f8f2; }
+
+/* Name.Property */
+.highlight .nt { color: #f92672; }
+
+/* Name.Tag */
+.highlight .nv { color: #f8f8f2; }
+
+/* Name.Variable */
+.highlight .ow { color: #f92672; }
+
+/* Operator.Word */
+.highlight .w { color: #f8f8f2; }
+
+/* Text.Whitespace */
+.highlight .mf { color: #ae81ff; }
+
+/* Literal.Number.Float */
+.highlight .mh { color: #ae81ff; }
+
+/* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff; }
+
+/* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff; }
+
+/* Literal.Number.Oct */
+.highlight .sb { color: #e6db74; }
+
+/* Literal.String.Backtick */
+.highlight .sc { color: #e6db74; }
+
+/* Literal.String.Char */
+.highlight .sd { color: #e6db74; }
+
+/* Literal.String.Doc */
+.highlight .s2 { color: #e6db74; }
+
+/* Literal.String.Double */
+.highlight .se { color: #ae81ff; }
+
+/* Literal.String.Escape */
+.highlight .sh { color: #e6db74; }
+
+/* Literal.String.Heredoc */
+.highlight .si { color: #e6db74; }
+
+/* Literal.String.Interpol */
+.highlight .sx { color: #e6db74; }
+
+/* Literal.String.Other */
+.highlight .sr { color: #e6db74; }
+
+/* Literal.String.Regex */
+.highlight .s1 { color: #e6db74; }
+
+/* Literal.String.Single */
+.highlight .ss { color: #e6db74; }
+
+/* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2; }
+
+/* Name.Builtin.Pseudo */
+.highlight .vc { color: #f8f8f2; }
+
+/* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2; }
+
+/* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2; }
+
+/* Name.Variable.Instance */
+.highlight .il { color: #ae81ff; }
+
+/* Literal.Number.Integer.Long */
+/* Generic Heading & Diff Header */
+.highlight .gu { color: #75715e; }
+
+/* Generic.Subheading & Diff Unified/Comment? */
+.highlight .gd { color: #f92672; }
+
+/* Generic.Deleted & Diff Deleted */
+.highlight .gi { color: #a6e22e; }
+
+/* Generic.Inserted & Diff Inserted */
+/** Style variables */
+@media print { .menu, #footer, .footer-directions { display: none; }
+  .container { max-width: 100% !important; }
+  /** Light theme variables */
+  :root { --base-color: #000; --primary-color: rgb(90, 90, 255); --border: dashed 1px rgba(0, 0, 0, 1); --selection-background: rgba(0, 0, 0, 0.99); --selection-text: #FFF; --background-color: #f2e7ff; --text-color: var(--base-color); --placeholder-color: var(--base-color); --anchor-hover-text-color: rgb(199, 28, 113); --link-color: var(--base-color); --codeblock-background: rgb(226, 226, 226); } }
+/** Style variables */
+.table-of-contents li { margin-left: 8px; }
+
+.table-of-contents li li { margin-left: 12px; }
+
+.table-of-contents li li li { margin-left: 16px; }
+
+.table-of-contents li li li li { margin-left: 20px; }
+
+.table-of-contents li li li li li { margin-left: 24px; }
+
+.table-of-contents li li li li li li { margin-left: 28px; }
+
+/* Hack Nerd Font */
+@font-face { font-family: 'Hack Nerd Font'; src: url("/assets/fonts/HackNerdFontComplete-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Hack Nerd Font'; src: url("/assets/fonts/HackNerdFontComplete-BoldItalic.ttf") format("truetype"); font-weight: bold; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Hack Nerd Font'; src: url("/assets/fonts/HackNerdFontComplete-Italic.ttf") format("truetype"); font-weight: normal; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Hack Nerd Font'; src: url("/assets/fonts/HackNerdFontComplete-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; font-display: swap; }
+/** Style variables */
+.post-list-item { padding: 10px; padding-left: 20px; border: 1px solid #7500b7; transition: border-color 0.25s linear; position: relative; border-left-width: 6px; border-left-style: dotted; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; }
+
+.post-list-item:focus, .post-list-item:hover { border-color: #ff00b3; }
+
+.post-list-item > a { text-align: center; font-size: 20px; }
+
+.post-list-item::before { marker: none !important; content: "" !important; }
+
+.post-list-date { color: #858585; }
+
+.post-times { white-space: nowrap; text-align: right; }
+
+.post-list-summary, .post-list-read-time { color: #858585; }
+
+.post-list-tags { float: right; marker: none; }
+
+.post-list-tags > li { display: inline-block; }
+
+.post-list-summary { display: inline; }
+
+#posts .post-list-item:not(:last-child) { margin-bottom: 20px; }
+
+.details-toggle + .details-toggle-target { display: none; }
+
+.details-toggle:hover + .details-toggle-target, .details-toggle:focus + .details-toggle-target { display: block; }
+
+#instantclick-bar { background-color: #9900FF; }
+
+.contact-links-details { position: relative; }
+
+pre.highlight { word-wrap: break-word; white-space: pre-wrap; }
+
+#resynth1943 { margin-bottom: 22px; font-size: 45px; text-align: center; color: #9900FF; }
+
+p:not(:last-child) { margin-bottom: 20px; }
+
+/* This is a modified version of the CSS available at https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
+.yt-embed-wrap { position: relative; padding-bottom: 56.25%; /* 16:9 */ padding-top: 25px; height: 0; }
+
+.home-contact-links li { display: inline-block; }
+
+.home-contact-links li::before { content: ''; }
+
+.yt-embed-uwrap, .yt-embed-wrap { /** Sometimes the YouTube embed load button / iframe overlays the text. This fixes that behaviour. */ margin-bottom: 20px; }
+
+.yt-embed-uwrap { border: 2px solid #f04848; background-color: rgba(240, 72, 72, 0.089); text-align: center; padding: 10px; }
+
+.yt-embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; box-shadow: 0px 0px 5px 0px #9900FF; }
+
+blockquote > p { font-style: italic; }
+
+blockquote > p::before { content: '“'; }
+
+blockquote > p::after { content: '”'; }
+
+#search-bar { font-size: 34px; font-weight: bolder; }
+
+#search-results > li:first-child::before { content: 'Most likely: '; }
+
+a.yt-vid-link { text-align: center; padding: 15px; }
+
+a.yt-vid-link:hover { color: white; }
+
+#search-results > li:first-child > a { color: green; }
+
+#search-results > li::before { content: "" !important; }
+
+.anchor { color: #008cff; font-size: 17px; vertical-align: super; text-decoration: none; }
+
+#image-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0000009d; color: white; display: flex; }
+
+[data-lazy-loading] { border: 2px solid #008cff; color: #008cff; }
+
+[data-lazy-loading]::after { color: red; content: 'This image is loading...'; }
+
+.header-list > li:not(:last-child)::after { content: " •"; }
+
+.header-list > li > a { padding: 10px; }
+
+.container img { width: 100%; height: auto; }
+
+code.highlighter-rouge { box-shadow: 0px 0px 4px 2px #747474; padding: 2px; }
+
+code { border-radius: 2px; }
+
+/* Flex */
+html { height: 99; max-height: 99%; }
+
+body { display: flex; justify-content: center; align-items: center; height: inherit; }
+
+.container { margin: auto; }
+
+/** Portrait Smartphone */
+@media (min-width: 320px) and (max-width: 550px) { body { align-items: unset; justify-content: unset; }
+  footer * { text-align: unset; }
+  .table-of-contents { display: block; } }
+@media (max-width: 1021px) { .table-of-contents { display: block; } }
+/** Global */
+body { background-color: var(--background-color); margin: 0 auto; padding: 0; font-family: "Hack Nerd Font", monospace; font-size: 14px; color: var(--text-color); text-align: left; line-height: 2 !important; }
+
+h1, h2, h3, h4, h5, h6 { margin: 0px; margin-top: 22px; font-weight: bold; color: var(--text-color); }
+
+p, ul, ol { margin: 0px; color: var(--text-color); }
+
+a { text-decoration: underline; color: var(--text-color); }
+
+a:hover { color: var(--anchor-hover-text-color); }
+
+.primary-text { color: var(--primary-color); }
+
+@media only screen and (max-device-width: 500px) { * { font-size: 13px !important; } }
+/*h1:before { content: "#";  margin-right: 9px; }
+h2:before { content: "##";  margin-right: 9px; }
+h3:before { content: "###";  margin-right: 9px; }
+h4:before { content: "####";  margin-right: 9px; }
+h5:before { content: "#####";  margin-right: 9px; }
+h6:before { content: "######";  margin-right: 9px; }*/
+/** Layout */
+.container { width: 90%; max-width: 1024px; margin-right: auto; margin-left: auto; }
+
+p { word-wrap: break-word; word-break: break-word; white-space: pre-wrap; }
+
+footer { color: var(--text-color); border-top: var(--border); margin: 20px auto 15px; padding-top: 10px; text-align: right; }
+
+header { margin-top: 25px; margin-bottom: 10px; }
+
+header p { text-align: left; margin: 0; }
+
+footer { margin-bottom: 20px; }
+
+/** Highlight/Markup */
+::selection { background: var(--selection-background); color: var(--selection-text); }
+
+::-moz-selection { background: var(--selection-background); color: var(--selection-text); }
+
+/** Lists */
+:not(.menu) > ul { list-style: none; padding-left: 0; }
+
+:not(.menu) > ul { list-style-type: none; }
+
+:not(.menu) > ul > li:before { content: "-"; margin-right: 9px; }
+
+/** Header/Navigation */
+.menu { border-top: var(--border); border-bottom: var(--border); margin-bottom: 25px; }
+
+.menu ul { margin-top: 12px; margin-bottom: 12px; padding-left: 0px; list-style-type: none; text-align: right; }
+
+.menu ul li { display: inline; margin-left: 10px; }
+
+.menu ul li a { text-decoration: none; color: var(--text-color); border: 2px dotted transparent; }
+
+.menu ul li a:hover { text-decoration: none; color: var(--anchor-hover-text-color); background-color: var(--background-color); border-color: var(--base-color); }
+
+/** Form */
+input, select, textarea { padding: 0; margin: 0; -webkit-appearance: none; -webkit-border-radius: 0; border: none; }
+
+input[type="text"], select, textarea { width: 100%; resize: none; background-color: var(--background-color); color: var(--text-color); caret-color: var(--text-color); font-size: 14px; font-family: "Hack Nerd Font", monospace; line-height: 2; }
+
+input, select, textarea, textarea::-webkit-input-placeholder { text-indent: 0px; }
+
+::placeholder { color: var(--placeholder-color); opacity: 1; }
+
+:-ms-input-placeholder { color: var(--placeholder-color); }
+
+::-ms-input-placeholder { color: var(--placeholder-color); }
+
+input[type="submit"] { font-size: 14px; font-family: "Hack Nerd Font", monospace; line-height: 2; cursor: pointer; color: var(--link-color); background-color: var(--background-color); }
+
+input[type="submit"]:hover { color: var(--background-color); background-color: var(--base-color); }
+
+*:focus { outline: none; }
+
+textarea { vertical-align: top; }
+
+/** Code and syntax highlighting */
+pre { background-color: var(--codeblock-background); border: none; padding: 8px; overflow: auto; font-size: 14px; color: rgba(255, 255, 255, 0.65); line-height: 1.7 !important; }

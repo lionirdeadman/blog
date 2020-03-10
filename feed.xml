@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2020-03-10T18:21:58+00:00</updated><id>/feed.xml</id><title type="html">resynth1943.github.io</title><subtitle>I am resynth1943. Welcome to my website.</subtitle><author><name>{&quot;twitter&quot;=&gt;&quot;resynth1943&quot;}</name></author><entry><title type="html">Optimizing This Blog</title><link href="/2020/01/11/Optimizing-this-Blog.html" rel="alternate" type="text/html" title="Optimizing This Blog" /><published>2020-01-11T00:00:00+00:00</published><updated>2020-01-11T00:00:00+00:00</updated><id>/2020/01/11/Optimizing-this-Blog</id><content type="html" xml:base="/2020/01/11/Optimizing-this-Blog.html">&lt;h1 id=&quot;optimizing-my-blog&quot;&gt;Optimizing My Blog&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;My blog can be viewed &lt;a href=&quot;https://resynth1943.github.io/&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The source code is freely available &lt;a href=&quot;https://github.com/resynth1943/resynth1943.github.io/&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;You can view this post on my blog &lt;a href=&quot;https://resynth1943.github.io/2020/01/11/optimizing-this-blog&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So you might be wondering why my site is so visually basic. There’s a few reasons for this, but the main one would definitely be &lt;strong&gt;Content comes first&lt;/strong&gt;. This is the fundamental point of having a blog (or any website). If you’re surrounding your content with advertisements, flashing lights, color palletes and Nyan Cats, &lt;em&gt;you’re doing it wrong&lt;/em&gt;. So in short, this blog is going to stay good lookin’ and slim, because I want your eyes to be on the content, rather than my distracting creations.&lt;/p&gt;
+
+&lt;p&gt;Another thing I think I’ve mastered with this blog is performance. I’ll go into that aspect in depth below, but here’s the quote I’d like you to walk away with.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;How long do users stay on your website before clicking away? How long do users stay on a web page?&lt;/p&gt;
+
+  &lt;p&gt;Most stick around less than 15 seconds. That’s how long you have to capture someone’s attention on your website. So, if you don’t do that in less than a quarter of a minute, you’ve lost them.
+— &lt;a href=&quot;https://www.crazyegg.com/blog/why-users-leave-a-website/&quot;&gt;CrazyEgg “The 15 Second Rule: 3 Reasons Why Users Leave a Website”&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I find this rule to be very important, especially as I’m seeing more and more sites adopt these “Allow Cookie” &lt;em&gt;fullscreen&lt;/em&gt; banners, This really doesn’t help in our modern society where things are moving so quickly. I’ve chosen to neglect this model and go with something slightly more minimalistic: Nothing.&lt;/p&gt;
+
+&lt;p&gt;Now you might think doing very little inhibits you. &lt;em&gt;It really doesn’t&lt;/em&gt;. It actually helps you in the long run. Why rush around getting your React app to build when you could just use Markdown and Jekyll? Some simplicity is required, after all.&lt;/p&gt;
+
+&lt;p&gt;Following the above points, there are a few performance optimizations I’ve made to this site. I’d like to share them with you today.&lt;/p&gt;
+
+&lt;h2 id=&quot;lazy-loading-images&quot;&gt;Lazy-loading Images&lt;/h2&gt;
+
+&lt;p&gt;When you’re reading something on the internet that has images, you really don’t need the images to load until you can see them. Web developers use something called lazy-loading for this exact purpose. When the image enters your line of sight, they are loaded. Until then, they’re left empty. The speed boost this provides is dependant is dependant on how many images are in the post. Of course if there are any, it’s practically &lt;em&gt;useless&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The effects of this can be seen on a mobile with a very slow data connection. I tried to keep that in mind.&lt;/p&gt;
+
+&lt;!-- Note to self: Perhaps an image would be nicer? The issue lies with YouTube though. You either use their API to get the thumbnail URL or you'll have a hard time. --&gt;
+&lt;div class=&quot;yt-embed-uwrap&quot;&gt;&lt;a href=&quot;#&quot; onclick=&quot;y_(this,'0eGxC5u3mPU?');event.preventDefault();&quot; aria-label=&quot;YouTube Video&quot; class=&quot;yt-vid-link&quot; style=&quot;/* background-image:url(https://img.youtube.com/vi/0eGxC5u3mPU/default.jpg); */&quot;&gt;YouTube: Lazy loading images — How it looks for a mobile user&lt;/a&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;how-this-works&quot;&gt;How this works&lt;/h3&gt;
+
+&lt;p&gt;I wrote a Node script to do this for me. This means I can produce content without thinking about this, &lt;em&gt;it’s all automated.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The most important transformation this does inside the HTML is this. Here’s what a normal &lt;code class=&quot;highlighter-rouge&quot;&gt;img&lt;/code&gt; tag looks like, in all it’s glory.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/image.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now here’s what the Node script does to it.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/assets/images/image.png&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;noscript&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/image.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/noscript&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When the &lt;code class=&quot;highlighter-rouge&quot;&gt;i_&lt;/code&gt; function is called, the HTML is changed to this.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/assets/images/image.png&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/image.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-lazy-loading&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{Base64 placeholder image data url}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;noscript&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/image.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/noscript&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, the &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; tag calls a JavaScript function: &lt;code class=&quot;highlighter-rouge&quot;&gt;_i&lt;/code&gt;. This function handles the lazy loading of the images, of course. Following this, the &lt;code class=&quot;highlighter-rouge&quot;&gt;height&lt;/code&gt; attribute is also passed to this function which allows the JavaScript to set the height of the placeholder image to that specific height, so the content doesn’t “jump about” when the image is loaded in. This makes for a smoother user experience, while also preserving the natural performance benefits of this technique. In short, you get the best of both worlds.&lt;/p&gt;
+
+&lt;p&gt;Following this, when the image has not yet been loaded in, a placeholder is used. This placeholder is a Base64 1x1 transparent image, which lets us do the above.&lt;/p&gt;
+
+&lt;p&gt;If you’re curious, the placeholder image can be seen below.&lt;/p&gt;
+
+&lt;details&gt;
+    &lt;summary&gt;The placeholder image&lt;/summary&gt;
+    &lt;code&gt;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=&lt;/code&gt;
+&lt;/details&gt;
+
+&lt;p&gt;Tiny, isn’t it? That’s the point.&lt;/p&gt;
+
+&lt;h2 id=&quot;responsive-images&quot;&gt;Responsive Images&lt;/h2&gt;
+
+&lt;p&gt;In addition to the previous technique, responsive images are provided to the user via the &lt;code class=&quot;highlighter-rouge&quot;&gt;srcset&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;sizes&lt;/code&gt; attributes. These allow the browser to fetch smaller images which match the side of the screen, using a smaller amount of data for devices with smaller screens, e.g. a mobile phone or a tablet.&lt;/p&gt;
+
+&lt;p&gt;This is done by another Node script.&lt;/p&gt;
+
+&lt;p&gt;There are a series of screen widths the images on this site are tailored for. &lt;em&gt;Currently&lt;/em&gt;, those are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;(200px → 300px)&lt;/li&gt;
+  &lt;li&gt;(400px → 500px)&lt;/li&gt;
+  &lt;li&gt;(600px → 700px)&lt;/li&gt;
+  &lt;li&gt;(700px → 800px)&lt;/li&gt;
+  &lt;li&gt;(1024px → *)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For every image in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/assets/images/&lt;/code&gt; location, smaller variants are created. Imagine you put an image there named &lt;code class=&quot;highlighter-rouge&quot;&gt;cat.png&lt;/code&gt;…&lt;/p&gt;
+
+&lt;p&gt;You would end up with these files generated by the script(s):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cat-2x.png&lt;/code&gt; (200px → 300px)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cat-4x.png&lt;/code&gt; (400px → 500px)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cat-6x.png&lt;/code&gt; (600px → 700px)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cat-7x.png&lt;/code&gt; (700px → 800px)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cat.png&lt;/code&gt; (1024px → *)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Of course, images that have a width greater than the &lt;code class=&quot;highlighter-rouge&quot;&gt;max-width&lt;/code&gt; of the site are scaled down, so the images are always going to be perfectly sized, in width and in download size.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-handling-of-critical-styles&quot;&gt;The Handling of Critical Styles&lt;/h2&gt;
+
+&lt;p&gt;Styling your website is important. Moreover, getting those styles to the user in a swift manner is important too. That is the reason why I created &lt;em&gt;another&lt;/em&gt; Node script to inline these styles into the &lt;code class=&quot;highlighter-rouge&quot;&gt;head&lt;/code&gt; of every HTML document. This creates less network requests and a faster initial loading time.&lt;/p&gt;
+
+&lt;p&gt;What happens at build-time is this. In the Jekyll layout that includes the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt;, there’s one odd &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;style&amp;gt;&lt;/code&gt; element there.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;style &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;data-transform-critical&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At build-time, that gets transformed to a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;style&amp;gt;&lt;/code&gt; element containing the central CSS for this page. Currently, this includes &lt;em&gt;all&lt;/em&gt; the CSS. If I increase the amount of CSS required for this page, I may choose to separate the criical and the non-critical styles into different files, and only inline the critical one here.&lt;/p&gt;
+
+&lt;h2 id=&quot;fonts&quot;&gt;Fonts&lt;/h2&gt;
+
+&lt;p&gt;Fonts are very fun to play with. I found a font I very much liked, and was hoping to include it as a part of this website. The font in question is named the &lt;a href=&quot;https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack&quot;&gt;Hack Nerd Font&lt;/a&gt;. It’s both elegant and simplistic, a fundamental building block of a good-looking website.&lt;/p&gt;
+
+&lt;p&gt;The only problem was the &lt;em&gt;size&lt;/em&gt; of the font(s). There were four variants being requested by the browser: Italic, Bold, Regular and BoldItalic. They were all 1MB each.&lt;/p&gt;
+
+&lt;p&gt;To try to counteract this while keeping the fonts, I had experimented with &lt;a href=&quot;fontforge&quot;&gt;FontForge&lt;/a&gt;, a popular but &lt;a href=&quot;https://fontforge.org/en-US/&quot;&gt;seemingly abandoned&lt;/a&gt; editor of fonts. My experience with this was not a good one, so I strove to find something &lt;em&gt;better&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Shortly after, I had discovered &lt;a href=&quot;https://www.npmjs.com/package/subfont&quot;&gt;subfont&lt;/a&gt;. Quoting the README:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A command line tool to statically analyse your page in order to generate the most optimal web font subsets, then inject them into your page.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Minimizing the size of the fonts turned out to be as easy as this:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;subfont _site &lt;span class=&quot;nt&quot;&gt;--recursive&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--in-place&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--dynamic&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--inline-fonts&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Why isn’t everyone doing this?!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That actually reduces the size of the fonts by a staggering 29.9MB. After my experience with it, I would urge you to &lt;a href=&quot;https://slides.com/munter/high-performance-web-fonts-3#/&quot;&gt;read more about it&lt;/a&gt;. I would encourage anyone creating a website to use this tool, as the reduction in size can be megnificent. I care about how fast my website loads, so this was perfect.&lt;/p&gt;
+
+&lt;h2 id=&quot;video-embeds&quot;&gt;Video Embeds&lt;/h2&gt;
+
+&lt;p&gt;Onto the last one. With video embeds, I’ve chosen to apply a more minimalistic approach, which is using &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; tags which, when clicked, will load the YouTube video embed. I have written a Jekyll layout for this very purpose.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;y_(this,'{{ include.video_id }}?{{ include.query }}')&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-label=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;YouTube Video&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yt-vid-link&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;YouTube: {{ include.alt }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When you click on the anchor tag (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt;), the YouTube embed iframe is appended to that part of the document, providing a lazy-loading solution for embeds. Genius! Of course, this had to stand out like an actual YouTube embed would, so I had to decorate it a bit. Here’s a demo.&lt;/p&gt;
+
+&lt;!-- Note to self: Perhaps an image would be nicer? The issue lies with YouTube though. You either use their API to get the thumbnail URL or you'll have a hard time. --&gt;
+&lt;div class=&quot;yt-embed-uwrap&quot;&gt;&lt;a href=&quot;#&quot; onclick=&quot;y_(this,'K1Xkt1E7PJY?');event.preventDefault();&quot; aria-label=&quot;YouTube Video&quot; class=&quot;yt-vid-link&quot; style=&quot;/* background-image:url(https://img.youtube.com/vi/K1Xkt1E7PJY/default.jpg); */&quot;&gt;YouTube: 9 hours relaxing sounds of cat hoovering around Christmas tree and presents #XmasLife&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;See? It stands out while still being speedy. Perfect!&lt;/p&gt;
+
+&lt;p&gt;In closing, I’d like to say the advantage of not eagerly loading the iframe is that it avoids loading a massive chunk of JavaScript / HTML. If I chose the lazy route, I might as well have not bothered optimizing at all.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I’d like to end this blog post by saying that optimizing your site is actually quite &lt;em&gt;easy&lt;/em&gt;. When you have the opportunity to do so, do it. As I have hopefully shown to you, the difference between an optimized and unoptimized site can be enormous, and it’s definitely worth it. Don’t reach for JavaScript libraries too quickly, and remember the &lt;a href=&quot;https://www.crazyegg.com/blog/why-users-leave-a-website/&quot;&gt;15 Second Rule&lt;/a&gt;.&lt;/p&gt;</content><author><name>{&quot;twitter&quot;=&gt;&quot;resynth1943&quot;}</name></author><category term="programming" /><category term="libraries" /><summary type="html">Optimizing My Blog</summary></entry><entry><title type="html">The AMA</title><link href="/2019/11/15/The-AMA.html" rel="alternate" type="text/html" title="The AMA" /><published>2019-11-15T00:00:00+00:00</published><updated>2019-11-15T00:00:00+00:00</updated><id>/2019/11/15/The-AMA</id><content type="html" xml:base="/2019/11/15/The-AMA.html">&lt;h1 id=&quot;the-ama&quot;&gt;The AMA&lt;/h1&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;I have recently been the subject of an AMA (Ask me Anything). Here is an archive of the questions / answers that happened in the AMA.&lt;/p&gt;
+
+&lt;h2 id=&quot;questions&quot;&gt;Questions&lt;/h2&gt;
+
+&lt;h3 id=&quot;whats-your-favourite-linux-distribution&quot;&gt;What’s your favourite Linux distribution?&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;I currently am in love with openSUSE Tumbleweed. openSUSE Leap has some old packages, like Firefox ESR, which don’t have functionality like custom elements, so I’ve opted for Tumbleweed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-you-did-find-your-way-into-penguin-land-linux&quot;&gt;How you did find your way into “penguin land” (Linux)?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I first tried experimenting with Linux Mint on my Macbook Pro 2015 (this goes back a while). I enjoyed getting away from MacOS more, which is probably why I was such a fan of Bootcamp (installs Windows on a Mac) and I partially liked the *buntu experience. I didn’t know much about Linux at the time (I thought it was just one… OS), but I’ve learned a lot. It’s definitely been a worthwhile experience.
+I’ve found that Windows offers more gaming capabilities, and is slightly better catered to the gaming community, which explains why it may be such a rarity over there, but Linux is ever so slowly catching up, from what I can see, with systems like PlayOnLinux offering an easy-to-use UI for playing games on Linux. I think this is a great idea, and one that should be encouraged.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;did-you-learn-js-first&quot;&gt;Did you learn JS first?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Correct! I first learned HTML, CSS and JavaScript. I resent being called a Full-Stack Developer (it’s a boring buzzword). I had some ups and downs with JavaScript (“why the fuck isn’t this posting to the motherfucking console”), but it’s been a pretty good experience. I think the ECMA could and should definitely introduce new features faster than they currently do, though.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;how-did-you-learn-js-in-particular&quot;&gt;How did you learn JS in particular?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I started learning JavaScript with CodeCademy. I remember liking the simplicity of the DOM API, and I recall using jQuery (which was a beginner’s mistake). I just kept writing JavaScript, and I got into it. After some annoyances with it which were due to my confusion with the language, I got into writing it more and more. I then moved on to Node.js, and at that point I though 100 LoC was amazing (I was making a Discord bot)…  Why am I embarrassing myself here :D . I was forced into actually learning the language though, and after a few years, here I am. I’m still where I began, in a sense. I’m looking at the source code of my Discord bot right now :D&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;which-animal-is-your-favourite&quot;&gt;Which animal is your favourite?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My favourite animal would have to be the cat. I have a cat named Puss.
+&lt;img src=&quot;/assets/images/puss-1.jpg&quot; alt=&quot;My Cat &amp;quot;Puss&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;whats-your-least-favourite-linux-distribution-and-why&quot;&gt;What’s your least favourite Linux distribution and why?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My least favourite distribution would have to be Linux Mint. Despite the fact I started out using it, I really dislike how it comes with it’s own desktop environment and other specific things. I like a distribution that lets you choose your Desktop Environment, too, hence my love for openSUSE. openSUSE has an option for installing no Desktop Environment, and you can tell the installer which systemd target you want to be the default too. I like customization like this, but not to the point it’s a bottleneck.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-are-your-top-5-favourite-programming-languages-and-why&quot;&gt;What are your top 5 favourite programming languages and why?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My favourite languages would have to be (in order):&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;TypeScript (a superset of JavaScript)&lt;/li&gt;
+    &lt;li&gt;Python, as it seems to be good for data from the small amount I’ve used it&lt;/li&gt;
+    &lt;li&gt;F# - I really like how it feels. I’m slowly starting to like the .NET ecosystem.&lt;/li&gt;
+    &lt;li&gt;HTML and CSS - I can use these, but I’m not sure how I feel about using them too much.&lt;/li&gt;
+    &lt;li&gt;[Plain] JavaScript - Yes, you read that right. I do not enjoy using JavaScript without TypeScript.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;!-- why did i add this one --&gt;
+
+&lt;h3 id=&quot;how-are-you&quot;&gt;How are you?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’m fine, thanks :) Hope you’re well.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;whats-your-favourite-video-game&quot;&gt;What’s your favourite video game?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My favourite video game would currently have to be Grand Theft Auto 4. I don’t play many games, but I really like the atmosphere that game provides, and the sounds. Everything about GTA 4 feels slightly retro.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;amd-or-nvidia&quot;&gt;AMD or NVIDIA?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I haven’t really had an AMD card. I’ve just got this gaming computer with the specs below.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;thoughts-on-freelibre-software-copyleft-vs-permissive-licenses&quot;&gt;Thoughts on free/libre software, copyleft vs permissive licenses?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’m not really sure about that one. I haven’t been exploring licensing much unfortunately.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-does-your-nickname-resynthified-stand-for&quot;&gt;What does your nickname, Resynthified, stand for?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I come up with nicknames pretty well, and the ones I come up with are unique. I chose the number 1943 as it’s the year of Tesla’s birthdate, but I’m not sure where Resynth came from. Resynthified is a spin of Resynth, it doesn’t stand for anything, it’s just a… variance, I would say.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;between-google-apple-and-ms-which-one-do-you-prefer-the-most-and-why&quot;&gt;Between Google, Apple and MS, which one do you prefer the most, and why?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I definitely don’t prefer Apple. I think I’m starting to like how Microsoft seems to be encouraging open-source nowadays. This has really improved in comparison to their old thinking model, but I can’t tell if this is just for marketing, and as justification for buying GitHub. I think if I had to choose, I’d choose Microsoft, as Google record a lot of your data, which you can view on your Dashboard.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;do-you-like-raspberry-pis-if-so-what-linux-distribution-would-you-install-on-them&quot;&gt;Do you like Raspberry Pis? If so, what Linux distribution would you install on them?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I definitely do like Raspberry Pis. I used one for hosting my Discord bot before. It has Raspbian on it, which I was pretty happy with. The system seemed pretty stable, and I quite like how small and extensible the RPi is.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-changes-do-you-want-to-see-in-the-linux-ecosystem-could-be-ones-that-exist-but-arent-used-or-some-that-dont-exist-yet-and-what-stuff-do-you-want-to-get-rid-of-or-would-get-rid-of-if-you-could&quot;&gt;What changes do you want to see in the linux ecosystem (could be ones that exist but aren’t used or some that don’t exist yet) and what stuff do you want to get rid of or would get rid of if you could?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’d like the concept of DIY (build it yourself) introduced to other systems like openSUSE. Building things yourself (from what I’ve read) can give performance advantages, and the packages can be more tailored to your system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-do-you-like-about-the-nodejsnpmtypescript-ecosystem&quot;&gt;What do you like about the NodeJS/NPM/TypeScript ecosystem?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I don’t like NPM or Node in it’s current state. I love how TypeScript functions though, it feels very natural to me with it’s interfaces and such.
+As previously said, I really don’t like using JavaScript on it’s own. I can also live with the NPM ecosystem, but I’ve been using GitLab for hosting my packages lately (https://gitlab.com/resynth1943).
+I really do like JavaScript up to a point. I mainly use Node.js (serverside JavaScript) nowadays, though.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-phone-do-you-have-and-did-you-tinker-with-it-installed-custom-roms-etc&quot;&gt;What phone do you have, and did you tinker with it (installed custom ROMs, etc)?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I currently have a Pixel 2 XL. I have not “tinkered” with it though, in the sense of modifiying the system. I mainly use the phone for taking pictures, though :D&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-are-your-thoughts-about-androids-evolution&quot;&gt;What are your thoughts about Android’s evolution?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I think Android has improved in some ways, and gone back in others. I don’t like how the impression is given that it’s so “open-source”, as many, if not all, phones come with a large amount of closed-source software from Google. I hope Google encourages a more open-source market soon, though, that would be nice.
+I also don’t like how Google is so up Apple’s arse. A lot of the features of an iPhone have been copied over onto Google’s flagship.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;would-you-use-a-linux-phone-as-a-daily-driver&quot;&gt;Would you use a Linux phone as a daily driver?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’d be open to using one if they have a good ecosystem and weren’t going to die soon.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;do-you-have-any-thoughts-on-installing-custom-roms-on-your-phone&quot;&gt;Do you have any thoughts on installing custom ROMs on your phone?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I wouldn’t be opposed to it in the slightest.
+In fact, I tried installing Cynanogen on an old Android. I think a custom ROM could provide more freedom to the user, in the sense that Google dominates phones with their non-FOSS data-collecting apps, e.g Google Play, and many other apps phones come loaded with, like Facebook. I think including Facebook with a phone is ridiculous though.
+In short, I definitely would like to explore this more. Custom ROMs seem to embrace FOSS more (most, anyway), and I think that’s definitely a good thing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-do-you-like-to-cook-also-cheese-or-no-cheese&quot;&gt;What do you like to cook? Also, cheese or no cheese?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1: Yeah, sometimes. I can bake up a good pasta, and I like eggs too. Eggs are pretty easy to cook. Sometimes I’m lazy and just throw a pizza in the halogen oven, though.
+2: Definitely cheese :)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;are-you-planning-to-get-into-systems-programming-languages&quot;&gt;Are you planning to get into systems programming languages?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you mean C[++], I’ve definitely looked into using those for making applications.
+The only thing that slightly put me off was the lack of a boolean type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-programming-language-that-youve-been-tried-outside-jsts&quot;&gt;What programming language that you’ve been tried outside JS/TS?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I have played with F#, I really really like the syntax and how currying works. It got me into FP, but my use with it has definitely dipped unfortunately. I’d like to start using it again. I was thinking of making Rebot’s [web?] UI with it :-)
+Here’s a – hopefully correct – sample of F#:&lt;/p&gt;
+
+  &lt;div class=&quot;language-fsharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;Collections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Array&lt;/span&gt;
+
+ &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+
+ &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;returnsNothing&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+     &lt;span class=&quot;bp&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// &amp;lt;- this is the &quot;unit&quot; type&lt;/span&gt;
+
+ &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+ &lt;span class=&quot;p&quot;&gt;[&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;EntryPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;]&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printfn&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;My number is %d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// return code&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;what-oss-projects-that-youve-been-contributed-to-gnome-project-kde-project-or-something-else&quot;&gt;What OSS projects that you’ve been contributed to? GNOME Project, KDE Project or something else?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Oh no, nothing on that scale unfortunately, but I have contributed to FOSS projects quite often, the activity is on my &lt;a href=&quot;https://github.com/resynth1943&quot;&gt;GitHub&lt;/a&gt;.
+My most active FOSS project isn’t FOSS yet though, I don’t release unusable products.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;vim-or-emacs&quot;&gt;Vim or Emacs?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I would choose Vim, as I’ve used it a lot more than I’ve used Emacs. I actually do use Vim sometimes for a quick little edit, although I wouldn’t say I use it on the daily.&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>{&quot;twitter&quot;=&gt;&quot;resynth1943&quot;}</name></author><category term="programming" /><category term="qa" /><category term="qanda" /><category term="q&amp;a" /><summary type="html">The AMA</summary></entry></feed>
