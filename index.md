@@ -6,15 +6,7 @@ permalink: /
 
 # resynth1943
 
-<ul class="home-contact-links">
-    <li><a href="https://twitter.com/resynth1943">Twitter</a></li>
-    <li><a href="https://github.com/resynth1943">GitHub</a></li>
-    <li><a href="https://gitlab.com/resynth1943">GitLab</a></li>
-    <li><a href="https://www.youtube.com/channel/UCesNREkzBOiT3ZCH8ssofEA?view_as=subscriber">YouTube</a></li>
-</ul>
-
-I create projects in my spare time in JavaScript and [TypeScript](http://typescriptlang.org/) using [NodeJS](https://nodejs.org). I also have a cat named "Puss", who I `interface` with regularly
-You can read more about me [here](/about).
+I create projects in my spare time in JavaScript and [TypeScript](http://typescriptlang.org/) using [NodeJS](https://nodejs.org). I also have a cat named "Puss", who I `interface` with regularly.
 
 ## Languages
 

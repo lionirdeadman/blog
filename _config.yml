@@ -3,15 +3,15 @@
 #google_analytics: UA-NNNNNNNN-N
 
 plugins:
-  - github-pages
-  - jekyll-sitemap
   - jekyll-feed
   - jekyll-time-to-read
+  - jekyll-sitemap
 
 header_pages:
  - index.md
  - search.md
  - memes.md
+ - reaching-out.md
 
 #footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
 #listen_for_clients_preferred_style: true # true or false (default)
@@ -28,7 +28,7 @@ lang: en
 style: dark
 
 footer:
-  'This site was created using the <a href="https://github.com/resynth/jekyll-theme-console">Jekyll Console Redux</a> theme and GitHub Pages.'
+  'Created with Jekyll, and an extension of the <a href="https://github.com/b2a3e8/jekyll-theme-console">Jekyll Console</a> theme.'
 
 future: true
 
@@ -51,9 +51,20 @@ keep_files:
 sass:
   # style: compressed
 
-description: I am resynth1943. Welcome to my website.
-
-contact_links:
-  Twitter: https://aaaa
+description: I'm resynth1943. This is my blog.
 
 markdown: kramdown
+
+social:
+  name: Resynth
+  links:
+    - https://vis.social/@resynth1943
+    - https://twitter.com/resynth1943
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      # Twitter cards don't like relative links...
+      image: https://resynth1943.now.sh/assets/avatar.png
+      sitemap: true

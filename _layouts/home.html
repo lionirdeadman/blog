@@ -18,8 +18,8 @@ layout: default
       {%- assign date_format = "%Y-%m-%d" -%}
       <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
       <br />
-      {%- if post.summary != nil -%}
-        <p class="post-list-summary">{{ post.summary | escape }}</p>
+      {%- if post.description != nil -%}
+        <p class="post-list-summary">{{ post.description | escape }}</p>
       {%- endif -%}
       <br /><br />
       <p class="post-times">
