@@ -2,7 +2,7 @@
 title: Optimizing This Blog
 tags: [programming, libraries]
 layout: post
-summary: This post goes into detail about how I optimized this site to be as fast as it can be.
+description: This post goes into detail about how I optimized this site to be as fast as it can be.
 ---
 
 # Optimizing My Blog
