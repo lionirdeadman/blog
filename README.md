@@ -4,7 +4,7 @@
 
 This repository contains the source code for my blog, which is located [here](https://resynth1943.now.sh). Unfortunately, the computational power required to build an instance of this website is *too great for a CI.* With this in mind, I have decided to replace GitHub Pages with now.sh.
 
-## Scripts
+## [Scripts](./scripts)
 
 In the `/scripts` folder, you will see various JavaScript source files for building this website. These scripts contain various optimizations, like compressing the size of images. You can see the optimizations provided by these scripts [here](https://resynth1943.now.sh/2020/01/11/Optimizing-this-Blog.html).
 
