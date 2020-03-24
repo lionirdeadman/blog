@@ -2,6 +2,7 @@
 title: Radio
 layout: default
 permalink: /radio.html
+description: A collection of media feeds for entertainment.
 ---
 
 # Radio

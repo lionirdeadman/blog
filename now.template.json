@@ -25,10 +25,7 @@
             }
         },
         {
-            "handle": "filesystem",
-            "headers": {
-                "X-You-Have-Been-Synthed": "fuck yes"
-            }
+            "handle": "filesystem"
         },
         {
             "src": "/(.*)",

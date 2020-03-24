@@ -46,6 +46,8 @@ exclude:
   - "*.lock"
   - "Makefile*"
   - third_party
+  - fonts
+  - scripts
 
 keep_files:
   - node_modules/
