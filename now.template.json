@@ -1,8 +1,9 @@
 {
     "routes": [
         { "handle": "filesystem" },
-        { "src": "/(.*)", "status": 404, "dest": "/404.html" },
         { "src": "/twitter", "headers": { "location": "https://twitter.com/resynth1943" } },
-        { "src": "/mastodon", "headers": { "location": "https://vis.social/@resynth1943" } }
+        { "src": "/mastodon", "headers": { "location": "https://vis.social/@resynth1943" } },
+        { "src": "/rss", "headers": { "location": "https://resynth1943.now.sh/feed.xml" }}
+        { "src": "/(.*)", "status": 404, "dest": "/404.html" }
     ]
 }

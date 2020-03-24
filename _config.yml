@@ -34,8 +34,6 @@ footer:
 
 future: true
 
-repository: resynth1943/resynth1943.github.io
-
 exclude:
   - node_modules/
   - pnpm-lock.yaml
