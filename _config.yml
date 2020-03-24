@@ -12,6 +12,7 @@ header_pages:
  - search.md
  - memes.md
  - reaching-out.md
+ - radio.md
 
 #footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
 #listen_for_clients_preferred_style: true # true or false (default)
