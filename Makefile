@@ -13,6 +13,7 @@ build_production:
 
 	@echo Compressing font files.
 	#npm run build:compress-fonts
+	cp -r ./fonts/* ./_site/assets/fonts/
 
 	# @echo Uglifying resources.
 	npm run build:uglify
