@@ -6,7 +6,7 @@ permalink: /
 
 # resynth1943
 
-I create projects in my spare time in JavaScript and [TypeScript](http://typescriptlang.org/) using [NodeJS](https://nodejs.org). I also have a cat named "Puss", who I `interface` with regularly.
+The adventures of Resynth, the JavaScript (99% TypeScript) developer and former YouTuber. Also fighting alongside you until it's acceptable; privacy matters.
 
 ## Languages
 
@@ -16,6 +16,4 @@ I am currently having a *fling* with JavaScript. I use it "on the daily" to deve
 
 I would also like to say that I use Linux for my development environment. To be more specific, I find openSUSE to be a coherent, configurable and easy-to-use distro. In addition, I can get my work done efficiently while using it. As my code editor, I use [Visual Studio Code](https://code.visualstudio.com) for the same reasons I use openSUSE. As for my desktop setup, I am currently using a nice Solarized theme with a few extensions to help me work.
 
-## How to reach me
-
-I have a Twitter account, which is available [here](https://twitter.com/resynth1943). If you need to contact me via email, my email is [resynth1943@outlook.com](mailto:resynth14943@outlook.com).
+If you'd like to contact me, [visit this page](/reaching-out.html)
