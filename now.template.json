@@ -4,25 +4,31 @@
             "src": "/twitter",
             "status": 308,
             "headers": {
-                "Location": "https://twitter.com/resynth1943"
+                "Location": "https://twitter.com/resynth1943",
+                "X-You-Have-Been-Synthed": "fuck yes"
             }
         },
         {
             "src": "/mastodon",
             "status": 308,
             "headers": {
-                "Location": "https://vis.social/@resynth1943"
+                "Location": "https://vis.social/@resynth1943",
+                "X-You-Have-Been-Synthed": "fuck yes"
             }
         },
         {
             "src": "/rss",
             "status": 308,
             "headers": {
-                "Location": "https://resynth1943.now.sh/feed.xml"
+                "Location": "https://resynth1943.now.sh/feed.xml",
+                "X-You-Have-Been-Synthed": "fuck yes"
             }
         },
         {
-            "handle": "filesystem"
+            "handle": "filesystem",
+            "headers": {
+                "X-You-Have-Been-Synthed": "fuck yes"
+            }
         },
         {
             "src": "/(.*)",
