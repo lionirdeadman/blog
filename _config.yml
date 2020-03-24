@@ -6,6 +6,7 @@ plugins:
   - jekyll-feed
   - jekyll-time-to-read
   - jekyll-sitemap
+  - jekyll-offline
 
 header_pages:
  - index.md
@@ -74,3 +75,6 @@ defaults:
       sitemap: true
 
 logo: https://resynth1943.now.sh/assets/gengar.png
+
+offline:
+  strategy: cache-then-network
