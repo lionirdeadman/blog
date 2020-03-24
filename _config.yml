@@ -68,7 +68,7 @@ defaults:
       path: ""
     values:
       # Twitter cards don't like relative links...
-      image: https://resynth1943.now.sh/assets/avatar.png
+      image: https://resynth1943.now.sh/assets/gengar.png
       sitemap: true
 
-logo: https://resynth1943.now.sh/assets/avatar.png
+logo: https://resynth1943.now.sh/assets/gengar.png
