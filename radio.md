@@ -1,5 +1,5 @@
 ---
-title: resynth1943
+title: Radio
 layout: default
 permalink: /radio
 ---

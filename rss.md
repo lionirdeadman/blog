@@ -1,5 +1,5 @@
 ---
-title: resynth1943
+title: RSS
 layout: default
 permalink: /rss
 ---
