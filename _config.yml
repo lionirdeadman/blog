@@ -53,7 +53,7 @@ keep_files:
 sass:
   # style: compressed
 
-description: I'm resynth1943. This is my blog.
+description: The adventures of Resynth, the JavaScript (99% TypeScript) developer and former YouTuber. Also fighting alongside you until it's acceptable; privacy matters.
 
 markdown: kramdown
 
