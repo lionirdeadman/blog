@@ -1,7 +1,7 @@
 ---
 title: Radio
 layout: default
-permalink: /radio
+permalink: /radio.html
 ---
 
 # Radio
