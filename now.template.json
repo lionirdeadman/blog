@@ -1,9 +1,33 @@
 {
     "routes": [
-        { "handle": "filesystem" },
-        { "src": "/twitter", "headers": { "location": "https://twitter.com/resynth1943" } },
-        { "src": "/mastodon", "headers": { "location": "https://vis.social/@resynth1943" } },
-        { "src": "/rss", "headers": { "location": "https://resynth1943.now.sh/feed.xml" } },
-        { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+        {
+            "src": "/twitter",
+            "status": 308,
+            "headers": {
+                "Location": "https://twitter.com/resynth1943"
+            }
+        },
+        {
+            "src": "/mastodon",
+            "status": 308,
+            "headers": {
+                "Location": "https://vis.social/@resynth1943"
+            }
+        },
+        {
+            "src": "/rss",
+            "status": 308,
+            "headers": {
+                "Location": "https://resynth1943.now.sh/feed.xml"
+            }
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*)",
+            "status": 404,
+            "dest": "/404.html"
+        }
     ]
 }
