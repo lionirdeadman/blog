@@ -12,8 +12,8 @@ build_production:
 	node ./scripts/transform-images.js
 
 	@echo Compressing font files.
-	#npm run build:compress-fonts
-	cp -r ./fonts/* ./_site/assets/fonts/
+	npm run build:compress-fonts
+	# cp ./fonts/* ./_site/assets/fonts/
 
 	# @echo Uglifying resources.
 	npm run build:uglify

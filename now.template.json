@@ -25,6 +25,57 @@
             }
         },
         {
+            "src": "/nsfw/",
+            "status": 308,
+            "headers": {
+                "Location": "https://www.youtube.com/watch?v=6n3pFFPSlW4",
+                "X-Holy-Shit": "get gnomed kiddo"
+            }
+        },
+        {
+            "src": "/index.php",
+            "status": 308,
+            "headers": {
+                "Location": "https://www.youtube.com/watch?v=6n3pFFPSlW4",
+                "X-Holy-Shit": "get gnomed kiddo"
+            }
+        },
+        {
+            "src": "/invite/typescript",
+            "status": 308,
+            "headers": {
+                "Location": "https://discord.gg/JkukWHt"
+            }
+        },
+        {
+            "src": "/invite/linux-tech-kingdom",
+            "status": 308,
+            "headers": {
+                "Location": "https://discord.gg/W9gN4Yq"
+            }
+        },
+        {
+            "src": "/invite/linuxcafe",
+            "status": 308,
+            "headers": {
+                "Location": "https://discord.gg/xHvbQ4q"
+            }
+        },
+        {
+            "src": "/invite/opensuse",
+            "status": 308,
+            "headers": {
+                "Location": "https://discord.gg/opensuse"
+            }
+        },
+        {
+            "src": "/invite/(.*)",
+            "status": 308,
+            "headers": {
+                "Location": "https://discord.gg/$1"
+            }
+        },
+        {
             "handle": "filesystem"
         },
         {
