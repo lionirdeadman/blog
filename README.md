@@ -1,6 +1,6 @@
 <div align="center">
   <h1><a href="https://resynth1943.now.sh">resynth1943</a></h1>
-  <img src="./assets/gengar.png" />
+  <img src="./assets/gengar.png" height="auto" width="100"/>
 </div>
 
 This repository contains the source code for my blog, which is located [here](https://resynth1943.now.sh). Unfortunately, the computational power required to build an instance of this website is *too great for a CI.* With this in mind, I have decided to replace GitHub Pages with now.sh, which allows me to build this page manually with ease.
