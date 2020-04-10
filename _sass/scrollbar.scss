@@ -1,0 +1,22 @@
+html {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+html, html::-webkit-scrollbar {
+    scrollbar-color: #150021;
+}
+
+html::-webkit-scrollbar {
+    width: 15px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: rgb(59, 2, 97);
+}
+
+@media (prefers-color-scheme: light) {
+    html, html::-webkit-scrollbar  {
+        scrollbar-color: #f2e7ff;
+    }
+}

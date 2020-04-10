@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/resynth1943
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://resynth1943.now.sh
+  * I am resynth1943 (https://keybase.io/resynth1943) on keybase.
+  * I have a public key ASBxlI24m7z7zFhzFuzrrRAKlsH5X8zJ_gvhUwThinBtIAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120f8c0a61c0fe9397d8bdecd311a32eef2cca582f44a6d489f3057943a7d73a4350a",
+      "host": "keybase.io",
+      "kid": "012071948db89bbcfbcc587316ecebad100a96c1f95fccc9fe0be15304e18a706d200a",
+      "uid": "ed843bc8c299e7bc6a26d7d93dd35719",
+      "username": "resynth1943"
+    },
+    "merkle_root": {
+      "ctime": 1586484077,
+      "hash": "38fa86346a3d43e728144ac529894907cba38dc8bb58ae66b3a4101027e1ab00c16cedcd93e21357e7b5e921aa015c575d402e7227528963f50b85d2aa8c8e9d",
+      "hash_meta": "bb8cccbde79d701c459c80e87b9eb683ba106f9b3f152bae49349ad79bf03383",
+      "seqno": 15870332
+    },
+    "service": {
+      "entropy": "AfLsgdrNy7L9RLwoBC8/KWEg",
+      "hostname": "resynth1943.now.sh",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.3.1"
+  },
+  "ctime": 1586484086,
+  "expire_in": 504576000,
+  "prev": "20062072bbf047a932973c05d3b4d7d41c741592855b45dda2673011e6f751d7",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgcZSNuJu8+8xYcxbs660QCpbB+V/Myf4L4VME4YpwbSAKp3BheWxvYWTESpcCEsQgIAYgcrvwR6kylzwF07TX1Bx0FZKFW0XdomcwEeb3UdfEIKMV09lJ7HwkLnxMMJWQ4RyVVQuwdV4eaGE5onIXXXu0AgHCo3NpZ8RAz/K3nrDBWkXc0cmEEox3tyDxhnLIEPPkeXIZhUel4PAO1eEwYUpNY58bdqZhmFkd4GLTTUSTByPK5hJwQ8qEC6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKAVmzsGnWrIMJLc2zxtlQTjYxCON0MIYezS/M90jDN+o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/resynth1943
+
+==================================================================

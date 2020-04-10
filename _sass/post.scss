@@ -1,26 +1,25 @@
 @import "variables";
 
-
 .table-of-contents li {
-    margin-left: $toc-indent * 2;
-  }
-  
-  .table-of-contents li li {
-    margin-left: $toc-indent * 3;
-  }
-  
-  .table-of-contents li li li {
-    margin-left: $toc-indent * 4;
-  }
-  
-  .table-of-contents li li li li {
-    margin-left: $toc-indent * 5;
-  }
-  
-  .table-of-contents li li li li li {
-    margin-left: $toc-indent * 6;
-  }
-  
-  .table-of-contents li li li li li li {
-    margin-left: $toc-indent * 7;
-  }
+  margin-left: $toc-indent * 2;
+}
+
+.table-of-contents li li {
+  margin-left: $toc-indent * 3;
+}
+
+.table-of-contents li li li {
+  margin-left: $toc-indent * 4;
+}
+
+.table-of-contents li li li li {
+  margin-left: $toc-indent * 5;
+}
+
+.table-of-contents li li li li li {
+  margin-left: $toc-indent * 6;
+}
+
+.table-of-contents li li li li li li {
+  margin-left: $toc-indent * 7;
+}
