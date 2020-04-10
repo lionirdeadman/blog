@@ -7,9 +7,9 @@ description: This post goes into detail about how I optimized this site to be as
 
 # Optimizing My Blog
 
-- **My blog can be viewed [here](https://resynth1943.github.io/).**
+- **My blog can be viewed [here](https://resynth1943.now.sh/).**
 - **The source code is freely available [here](https://github.com/resynth1943/resynth1943.github.io/).**
-- **You can view this post on my blog [here](https://resynth1943.github.io/2020/01/11/optimizing-this-blog).**
+- **You can view this post on my blog [here](https://resynth1943.now.sh/2020/01/11/optimizing-this-blog).**
 
 So you might be wondering why my site is so visually basic. There's a few reasons for this, but the main one would definitely be **Content comes first**. This is the fundamental point of having a blog (or any website). If you're surrounding your content with advertisements, flashing lights, color palletes and Nyan Cats, *you're doing it wrong*. So in short, this blog is going to stay good lookin' and slim, because I want your eyes to be on the content, rather than my distracting creations.
 
